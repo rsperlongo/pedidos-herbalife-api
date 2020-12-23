@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
 
 // put data
 router.put('/:id',(req, res, next) => {
-    Members.findByIdAndUpdate(req.params.id, req.body, (err, products) => {
+    Products.findByIdAndUpdate(req.params.id, req.body, (err, products) => {
         if (err) {
             console.log(err);
             return next(err);
@@ -41,7 +41,7 @@ router.put('/:id',(req, res, next) => {
   
 // delete data by id
 router.delete('/:id', (req, res, next) => {
-    Members.findByIdAndRemove(req.params.id, req.body, function (err, products) {
+    Products.findByIdAndRemove(req.params.id, req.body, function (err, products) {
         if (err) return next(err);
         res.json(products);
     });
