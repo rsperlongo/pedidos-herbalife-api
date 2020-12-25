@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
 // const app = express();
-const Products = require('../models/Products');
+const Flavours = require('../models/Flavours');
 
 router.get('/', (req, res) => {
-    Products.find((err, products) => {
+    Flavours.find((err, products) => {
         if (err) return next(err);
         res.json(products);
     });
 });
 
 router.get('/:id', (req, res, next) => {
-    Products.findById(req.params.id, (err, products) => {
+    Flavours.findById(req.params.id, (err, products) => {
         if (err) return next(err);
         res.json(products);
     });
 });
 
 router.post('/', (req, res, next) => {
-    Products.create(req.body, (err, products) => {
+    Flavours.create(req.body, (err, products) => {
         if (err) {
             console.log(err);
             return next(err);
@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
 
 // put data
 router.put('/:id',(req, res, next) => {
-    Products.findByIdAndUpdate(req.params.id, req.body, (err, products) => {
+    Flavours.findByIdAndUpdate(req.params.id, req.body, (err, products) => {
         if (err) {
             console.log(err);
             return next(err);
@@ -40,7 +40,7 @@ router.put('/:id',(req, res, next) => {
   
 // delete data by id
 router.delete('/:id', (req, res, next) => {
-    Products.findByIdAndRemove(req.params.id, req.body, function (err, products) {
+    Flavours.findByIdAndRemove(req.params.id, req.body, function (err, products) {
         if (err) return next(err);
         res.json(products);
     });

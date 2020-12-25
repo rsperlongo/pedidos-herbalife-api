@@ -10,6 +10,7 @@ mongoose.connect('mongodb+srv://ricardo:carmem@2018@ricardo0.vrxdu.mongodb.net/p
 ).then(() => console.log('connection successful')).catch((err) => console.log(console.error(err)));
 
 const productsRouter = require('./routes/products');
+const flavoursRouter = require('./routes/flavours');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(cookieParse());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/products', productsRouter);
+app.use('/flavours', flavoursRouter);
 
 app.listen(3000);
 
