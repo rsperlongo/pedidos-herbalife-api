@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { model } = require('./Products');
 
 const FlavoursSchema = new mongoose.Schema({
     _id: String,
@@ -13,3 +14,5 @@ const FlavoursSchema = new mongoose.Schema({
     passion_fruit: String,
     peanuts:String
 })
+
+module.exports = mongoose.model('Flavours', FlavoursSchema);
